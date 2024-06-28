@@ -18,7 +18,13 @@ function Counter() {
         <button onClick={() => setStep((c) => c + 1)}>+</button>
       </div>
       <button onClick={() => setCount((c) => c - step)}>-</button>
-      <span>Count:{count}</span>
+      <span>
+        <input
+          type="text"
+          value={count}
+          onChange={(e) => setCount(e.target.value)}
+        />
+      </span>
       <button onClick={() => setCount((c) => c + step)}>+</button>
       <p>
         {count === 0

@@ -10,6 +10,11 @@ function Counter() {
 
   const date = new Date();
   date.setDate(date.getDate() + count);
+
+  function handleReset() {
+    setCount(0);
+    setStep(1);
+  }
   return (
     <div className="date">
       <div>
@@ -39,6 +44,11 @@ function Counter() {
           : `${Math.abs(count) + " days ago was "}`}
         {date.toDateString()}
       </p>
+      {count !== 0 || step !== 1 ? (
+        <div>
+          <button onClick={handleReset}>Reset</button>
+        </div>
+      ) : null}
     </div>
   );
 }

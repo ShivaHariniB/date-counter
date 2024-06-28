@@ -13,9 +13,14 @@ function Counter() {
   return (
     <div className="date">
       <div>
-        <button onClick={() => setStep((c) => c - 1)}>-</button>
-        <span>Step:{step}</span>
-        <button onClick={() => setStep((c) => c + 1)}>+</button>
+        <input
+          type="range"
+          min={1}
+          max={10}
+          value={step}
+          onChange={(e) => setStep(Number(e.target.value))}
+        />
+        <span>{step}</span>
       </div>
       <button onClick={() => setCount((c) => c - step)}>-</button>
       <span>
